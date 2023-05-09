@@ -6,8 +6,28 @@ $(document).ready(onReady);
 let fungusHP = 100;
 let attackAP = 100;
 
-let attacks = []
-let attackObjects ={}
+let attacks = [
+    {name: arcaneScepter,
+    apCost: 12,
+    hpDamage: 14},
+    {name: entangle,
+    apCost: 23,
+    hpDamage: 9,},
+
+    {name: dragonBlade,
+    apCost: 38,
+    hpDamage: 47,},
+
+    {name: starFire,
+    apCost: 33,
+    hpDamage: 25,},
+]
+
+
+
+
+
+
 
 function onReady() {
     $("body .attack-btn arcane-scepter").on("click", );
@@ -28,6 +48,9 @@ function onReady() {
 }
 
 function attackAction(){
+    for (let attack of attacks){
+        if (attack.name)
+    }
     $('body .ap-text').text(fungusHP-attack.damage)
     $('body .hp-text').text(attackAP-attack.apCost)
 
