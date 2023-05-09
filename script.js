@@ -59,14 +59,12 @@ function dragonBladeAttack(){
     affectTheBars(dragonBlade.apCost, dragonBlade.hpDamage);
 
 }
-
-
 function starFireAttack(){
     affectTheBars(starFire.apCost, starFire.hpDamage);
 
 }
 
-function affectTheBars(ap, hp){
+function affectTheAnimations(ap, hp){
     fungusHP-=hp
     attackAP-=ap
 
@@ -89,8 +87,6 @@ function affectTheBars(ap, hp){
 function render(){
     $("#hp-meter").val((fungusHP));
 	$(".hp-text").text(`${fungusHP} HP`);
-
-
     $("#ap-meter").val((attackAP));
     $(".ap-text").text(`${(attackAP)} AP`);
 
