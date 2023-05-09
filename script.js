@@ -70,7 +70,16 @@ function starFireAttack(){
 }
 
 function affectTheBars(ap, hp){
-    $("#hp-meter").val((fungusHP -= hp));
-    $('#ap-meter').val((attackAP -= ap));
+    if ($('#hp-meter').val()>0){
+        $("#hp-meter").val((fungusHP -= hp));
+    } else $("#hp-meter").val(0);
+
+    if ($("#ap-meter").val()>0){
+        $("#ap-meter").val((attackAP -= ap));
+    }
+    if ($("#ap-meter").val() < 0 ){
+        $('#ap-meter').val(0)
+        
+    };
 
 }
