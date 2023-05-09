@@ -6,8 +6,6 @@ $(document).ready(onReady);
 let fungusHP = 100;
 let attackAP = 100;
 
-let attacks = []
-
 let arcaneScepter= {
     name: 'Arcane Scepter',
     apCost: 12,
@@ -32,39 +30,47 @@ let starFire = {
     hpDamage: 25,
 };
 
-attacks.push(arcaneScepter, entagle, dragonBlade, starFire);
-
 
 
 function onReady() {
-    for (let attack of attacks){
-        console.log(attack.name);
+	$(".arcane-scepter").on("click", arcaneScepterAttack);
+	$(".entangle").on("click", entagleAttack );
+	$(".dragon-blade").on("click", dragonBladeAttack );
+	$(" .star-fire").on("click", starFireAttack);
 
-    }
-    // $("body .attack-btn").on("click", attackAction);
-    $("body .attack-btn arcane-scepter").on("click", attackAction);
-    $("body .attack-btn entangle").on("click", attackAction);
-    $("body .attack-btn dragon-blade").on("click", attackAction);
-    $("body .attack-btn star-fire").on("click", attackAction);
+	// Make sure you check the index.html file!
+	// There are lots of buttons and things ready for you to hook into here!
 
-
-
-    // Make sure you check the index.html file!
-    // There are lots of buttons and things ready for you to hook into here!
-
-
-    // 🧠 Remember
-    // - Handle events that ->
-    // - Updates state which is ->
-    // - Rendered to the DOM
+	// 🧠 Remember
+	// - Handle events that ->
+	// - Updates state which is ->
+	// - Rendered to the DOM
 }
 
-function attackAction(){
-    for (let attack of attacks){
-        console.log(this);
-        console.log(attack);
-    }
-    // $('body .ap-text').text(fungusHP-=this.hpDamage)
-    // $('body .hp-text').text(attackAP-=this.apCost)
+function arcaneScepterAttack(){
+
+    affectTheBars(arcaneScepter.apCost, arcaneScepter.hpDamage)
+}
+
+function entagleAttack(){
+    affectTheBars(entagle.apCost, entagle.hpDamage);
+
+}
+
+function dragonBladeAttack(){
+    affectTheBars(dragonBlade.apCost, dragonBlade.hpDamage);
+
+}
+
+
+function starFireAttack(){
+    affectTheBars(starFire.apCost, starFire.hpDamage);
+
+
+}
+
+function affectTheBars(ap, hp){
+    $("#hp-meter").val((fungusHP -= hp));
+    $('#ap-meter').val((attackAP -= ap));
 
 }
