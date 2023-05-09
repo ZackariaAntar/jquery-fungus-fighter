@@ -6,34 +6,46 @@ $(document).ready(onReady);
 let fungusHP = 100;
 let attackAP = 100;
 
-let attacks = [
-    {name: arcaneScepter,
+let attacks = []
+
+let arcaneScepter= {
+    name: 'Arcane Scepter',
     apCost: 12,
-    hpDamage: 14},
-    {name: entangle,
-    apCost: 23,
-    hpDamage: 9,},
+    hpDamage: 14,
+};
 
-    {name: dragonBlade,
-    apCost: 38,
-    hpDamage: 47,},
+let entagle = {
+    name: 'Entangle',
+	apCost: 23,
+	hpDamage: 9,
+};
 
-    {name: starFire,
+let dragonBlade = {
+    name: 'Dragon Blade',
+	apCost: 38,
+	hpDamage: 47,
+};
+
+let starFire = {
+    name: 'Star Fire',
     apCost: 33,
-    hpDamage: 25,},
-]
+    hpDamage: 25,
+};
 
-
-
-
+attacks.push(arcaneScepter, entagle, dragonBlade, starFire);
 
 
 
 function onReady() {
-    $("body .attack-btn arcane-scepter").on("click", );
-    $("body .attack-btn entangle").on("click", );
-    $("body .attack-btn dragon-blade").on("click", );
-    $("body .attack-btn star-fire").on("click", );
+    for (let attack of attacks){
+        console.log(attack.name);
+
+    }
+    // $("body .attack-btn").on("click", attackAction);
+    $("body .attack-btn arcane-scepter").on("click", attackAction);
+    $("body .attack-btn entangle").on("click", attackAction);
+    $("body .attack-btn dragon-blade").on("click", attackAction);
+    $("body .attack-btn star-fire").on("click", attackAction);
 
 
 
@@ -49,9 +61,10 @@ function onReady() {
 
 function attackAction(){
     for (let attack of attacks){
-        if (attack.name)
+        console.log(this);
+        console.log(attack);
     }
-    $('body .ap-text').text(fungusHP-attack.damage)
-    $('body .hp-text').text(attackAP-attack.apCost)
+    // $('body .ap-text').text(fungusHP-=this.hpDamage)
+    // $('body .hp-text').text(attackAP-=this.apCost)
 
 }
